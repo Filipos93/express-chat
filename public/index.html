@@ -8,7 +8,7 @@
 	<meta name="description" content="Online Chat">
 	<meta name="author" content="Filip Marzec">
 
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/vendor/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/styles.css?v=1.0">
 </head>
 
@@ -39,11 +39,23 @@
 			</div> <!--/col-xs-2-->
 			
 			<div class="col-xs-10">
-				<div class="chat-window">
-					
-				</div>
+				<div class="chat-window"></div>
 			</div> <!--/col-xs-10-->
 		
+		</div> <!--/row-->
+
+		<div class="row">
+			
+			<div class="col-xs-offset-2"></div>
+			
+			<div class="col-xs-10 pull-right">
+				<form action="" id="chat-form">
+					<input type="textarea" id="chat-input">
+					<input type="submit" class="btn btn-success" value="Send">
+				</form>
+				<p>Your nickname: </p><span id="nickname"></span>
+			</div>
+
 		</div> <!--/row-->
 
 	</div> <!--/container-->
@@ -51,7 +63,8 @@
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/scripts.js"></script>
+	<script src="js/vendor/bootstrap.min.js"></script>
+	<script src="/js/vendor/socket.io.js"></script>
+	<script src="js/client.js"></script>
 </body>
 </html>

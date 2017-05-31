@@ -1,4 +1,22 @@
 .chat-window{
 	background: gray;
 	height: 500px;
+	overflow-y: scroll;
+}
+
+.message{
+	height: 31px;
+	padding: 5px;
+	background: #f8f8f8;
+	border: 1px solid #7a5a6a;
+	font-weight: 300;
+}
+
+.author{
+	font-weight: 700;
+	float: left;
+}
+
+#chat-input{
+	width: 90%;
 }
