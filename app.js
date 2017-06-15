@@ -22,7 +22,7 @@ var storeMessages = function(name, data){
 
 io.on('connection', function(client){
 	console.log('client connected');
-	client.emit('message', {author: 'server', msg: 'Connected to chat'});
+	client.emit('message', {author: 'server', msg: ' Connected to chat'});
 	
 	redisClient.lrange("messages", 0, -1, function(err, messages){
 		// console.log(messages);
@@ -36,7 +36,17 @@ io.on('connection', function(client){
 	client.on('join', function(data){
 		client.nickname = data;
 		client.broadcast.emit('new user joined', data);
+		redisClient.smembers("users", function(err, names) {
+			names.forEach(function(name){	
+			client.emit('new user joined', name);	
+			});	
+		});
 		redisClient.sadd("users", data);
+	});
+
+	client.on('disconnect', function(name){
+		client.broadcast.emit("user disconnected", client.nickname);
+		redisClient.srem("users", client.nickname);	
 	});
 
 	client.on('message', function (data){
