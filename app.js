@@ -35,6 +35,8 @@ io.on('connection', function(client){
 	
 	client.on('join', function(data){
 		client.nickname = data;
+		client.broadcast.emit('new user joined', data);
+		redisClient.sadd("users", data);
 	});
 
 	client.on('message', function (data){

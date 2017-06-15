@@ -20,3 +20,13 @@
 #chat-input{
 	width: 90%;
 }
+
+.nick-label{
+	text-align: right;
+	position: relative;
+	top: 6px;
+}
+
+.modal-title{
+	display: inline;
+}

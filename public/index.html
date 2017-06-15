@@ -14,6 +14,38 @@
 
 <body>
 
+	<div class="modal fade" id="nickNameModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Welcome to The Chat!</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid">
+						<form id="nickNameForm">
+							<div class="form-group">
+								<div class="row">
+									<div class="col-md-5 nick-label">
+										<label for="nickname" class="form-control-label">Choose your nickname:</label>
+									</div>
+									<div class="col-md-4">
+										<input type="text" class="form-control" id="nickNameInput">
+									</div>
+								</div>
+							</div>
+
+								<input type="submit" class="btn btn-success pull-right" value="Save">
+							
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -31,10 +63,6 @@
 			<div class="col-xs-2">
 				<div class="list-group users">
 					<a href="#" class="list-group-item disabled">Users list</a>
-					<a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-					<a href="#" class="list-group-item">Morbi leo risus</a>
-					<a href="#" class="list-group-item">Porta ac consectetur ac</a>
-					<a href="#" class="list-group-item">Vestibulum at eros</a>
 				</div>
 			</div> <!--/col-xs-2-->
 			

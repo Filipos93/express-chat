@@ -17,9 +17,16 @@ $(function(){
 	}
 
 	socket.on('connect', function(data){
-		let nickname = prompt("What is your nickname?");
-		socket.emit('join', nickname);
-		$('#nickname').html(nickname);
+		$('#nickNameModal').modal();
+	});
+
+	$('#nickNameForm').on('submit', function(e){
+			console.log('submitted');
+			e.preventDefault();
+			let nickname = $('#nickNameInput').val();
+			socket.emit('join', nickname);
+			$('#nickname').html(nickname);
+			$('#nickNameModal').modal('hide');
 	});
 
 	socket.on('message', function(data){
@@ -27,6 +34,11 @@ $(function(){
 		let chatWindow = $('.chat-window');
 		let windowHeight = chatWindow[0].scrollHeight;
 		chatWindow.scrollTop(windowHeight);
+	});
+
+	socket.on('new user joined', function(data){
+		let userToAppend = $(`<a href="#" class="list-group-item">${data}</a>`);
+		userToAppend.hide().appendTo('.users').fadeIn(300);
 	});
 
 	$('#chat-form').on('submit', function(e){
